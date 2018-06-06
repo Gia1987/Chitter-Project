@@ -1,4 +1,19 @@
-<%= @message %>
-<form  action="/post" method="get">
-  <input type="submit" value="Post">
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>chitter</title>
+  </head>
+  <body>
+    <h1>WELCOME TO CHITTER</h1>
+    <ul>
+      <% @peeps.each do |peep| %>
+          <li><%= peep %></li>
+        </a>
+      <% end %>
+    </ul>
+    <form  action="/post" method="get">
+      <input type="submit" value="Post">
+    </form>
+  </body>
+</html>

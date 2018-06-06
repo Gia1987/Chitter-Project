@@ -1,18 +1,20 @@
 require 'sinatra/base'
+require_relative './lib/peep'
+require_relative './database_connection_setup'
 
 # Chitter class
 class Chitter < Sinatra::Base
-  enable :sessions
+  # enable :sessions
 
   get '/' do
-    @message = session[:message]
+    @peeps = Peep.all.reverse
     erb :index
   end
   get '/post' do
     erb :post
   end
   post '/posting' do
-    session[:message] = params[:message]
+    Peep.add(params[:message])
     redirect '/'
   end
 
