@@ -7,14 +7,15 @@ class Chitter < Sinatra::Base
   # enable :sessions
 
   get '/' do
-    @peeps = Peep.all.reverse
+    @peeps = Peep.all
     erb :index
   end
   get '/post' do
     erb :post
   end
   post '/posting' do
-    Peep.add(params[:message])
+    time = DateTime.now
+    Peep.add(params[:message], time)
     redirect '/'
   end
 
