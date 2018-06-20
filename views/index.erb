@@ -5,7 +5,21 @@
     <title>chitter</title>
   </head>
   <body>
+    <nav>
+	<ul>
+    <li><a href="/post">New peep</a></li>
+    <li><a href="/users">Sign up</a></li>
+    <li><a href="/session">Sign in</a></li>
+  </ul>
+</nav>
     <h1>WELCOME TO CHITTER</h1>
+    <%= styled_flash %>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out" />
+    </form>
+    <% if @user %>
+      <h1>Welcome, <%= @user.email %></h1>
+    <% end %>
     <ul>
       <% @peeps.each do |peep| %>
           <li> <%= peep.message %> <%= peep.time %></li>

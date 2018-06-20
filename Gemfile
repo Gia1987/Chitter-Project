@@ -2,7 +2,9 @@
 
 source "https://rubygems.org"
 
+gem 'bcrypt'
 gem 'capybara'
+gem 'sinatra-flash'
 gem 'pg'
 gem 'rake'
 gem 'rspec'
